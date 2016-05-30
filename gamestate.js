@@ -1,4 +1,7 @@
 
+var player = new Player();
+var worldOffsetX = 0;
+
 var GameState = function() 
 {
 	this.prototype = BaseState;
@@ -18,21 +21,22 @@ GameState.prototype.update = function(dt)
 	if( this.delay > 0 )
 		this.delay -= dt;
 
-	if( this.delay <= 0 && keyboard.isKeyDown( keyboard.KEY_SPACE ) == true )
-	{
-		stateManager.switchState( new GameOverState() );
-	}
+	//if( this.delay <= 0 && keyboard.isKeyDown( keyboard.KEY_SPACE ) == true )
+	//{
+	//	stateManager.switchState( new GameOverState() );
+	//}
 }
 
 GameState.prototype.draw = function() 
 {
-	context.font="72px Verdana";	
-	context.fillStyle = "#FF0";	
-	var width = context.measureText("GAME STATE").width;
-	context.fillText("GAME STATE", SCREEN_WIDTH/2 - width/2, SCREEN_HEIGHT/2);		
+	player.draw();
+	//context.font="72px Verdana";	
+	//context.fillStyle = "#FF0";	
+	//var width = context.measureText("GAME STATE").width;
+	//context.fillText("GAME STATE", SCREEN_WIDTH/2 - width/2, SCREEN_HEIGHT/2);		
 	
 	
-	if( this.delay <= 0 )
+	/*if( this.delay <= 0 )
 	{
 		context.font="18px Verdana";	
 		context.fillStyle = "#000";	
@@ -48,5 +52,5 @@ GameState.prototype.draw = function()
 		context.fillStyle = "#000";		
 		width = context.measureText(time + "." + decimal).width;
 		context.fillText(time + "." + decimal, SCREEN_WIDTH/2 - width/2, 300);
-	}
+	}*/
 }
