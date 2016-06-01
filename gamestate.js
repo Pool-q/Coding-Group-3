@@ -1,6 +1,6 @@
 
-var player = new Player();
-var worldOffsetX = 0;
+
+
 
 var GameState = function() 
 {
@@ -29,7 +29,30 @@ GameState.prototype.update = function(dt)
 
 GameState.prototype.draw = function() 
 {
+	var deltaTime = getDeltaTime();
+	drawMap();
 	player.draw();
+
+	if(DEBUG == 1)
+	{	
+			// update the frame counter 
+		fpsTime += deltaTime;
+		fpsCount++;
+		if(fpsTime >= 1)
+		{
+			fpsTime -= 1;
+			fps = fpsCount;
+			fpsCount = 0;
+		}		
+		
+		// draw the FPS
+		context.fillStyle = "#f00";
+		context.font="14px Arial";
+		context.fillText("FPS: " + fps, 5, 20, 100);
+		context.fillText("X " + player.position.x, 5, 40, 100);
+		context.fillText("Y " + player.position.y, 5, 60, 100);
+	}
+
 	//context.font="72px Verdana";	
 	//context.fillStyle = "#FF0";	
 	//var width = context.measureText("GAME STATE").width;
