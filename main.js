@@ -61,8 +61,9 @@ var ACCEL = MAXDX*2;
 var FRICTION = MAXDX*6;
 var JUMP = METER*1500;
 
-var keyboard = new Keyboard();
 var player = new Player();
+var keyboard = new Keyboard();
+
 
 var stateManager = new StateManager();
 
@@ -188,14 +189,20 @@ function bound (value, min, max)
 
 
 var worldOffsetX = 0;
+var worldOffsetY = 0;
 
 function drawMap()
 {
 	var startX = -1;
+	var startY = -1;
 	var maxTiles = Math.floor(SCREEN_WIDTH / TILE) + 2;
+	var maxTilesUp = Math.floor(SCREEN_HEIGHT/TILE) + 2;
 	var tileX = pixelToTile(player.position.x);
+	var tileY = pixelToTile(player.position.y);
 	var offsetX = TILE + Math.floor(player.position.x%TILE);
+	var offsetY = TILE + Math.floor(player.position.y%TILE);
 	startX = tileX - Math.floor(maxTiles / 2);
+	startY = tileY - Math.floor(maxTilesUp / 2);
 
 	if(startX < -1)
 	{
@@ -208,10 +215,21 @@ function drawMap()
 		offsetX = TILE;
 	}
 	worldOffsetX = startX * TILE + offsetX;
+	if(startY < -1)
+	{
+		startY = 0;
+		offsetY = 0;
+	}
+	if(startY > MAP.th - maxTilesUp)
+	{
+		startY = MAP.th - maxTilesUp + 1;
+		offsetY = TILE;
+	}
+	worldOffsetX = startX * TILE + offsetX;
 
 	for( var layerIdx=0; layerIdx < LAYER_COUNT; layerIdx++ )
 	{
-		for( var y = 0; y < level1.layers[layerIdx].height; y++ )
+		for( var y = startY; y < startY + maxTilesUp; y++ )
 		{
 			var idx = y * level1.layers[layerIdx].width + startX;
 			for( var x = startX; x < startX + maxTiles; x++ )
@@ -240,6 +258,7 @@ function run()
 {
 	context.fillStyle = "#ccc";		
 	context.fillRect(0, 0, canvas.width, canvas.height);
+	drawMap();
 	
 	var deltaTime = getDeltaTime();
 	

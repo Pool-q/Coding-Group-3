@@ -30,7 +30,7 @@ GameState.prototype.update = function(dt)
 GameState.prototype.draw = function() 
 {
 	var deltaTime = getDeltaTime();
-	drawMap();
+	//drawMap();
 	player.draw();
 
 	if(DEBUG == 1)
