@@ -35,17 +35,17 @@ Player.prototype.update = function(deltaTime)
 	if(keyboard.isKeyDown(keyboard.KEY_LEFT) == true) {
 	left = true;
 	this.direction = LEFT;
-	//if(this.sprite.currentAnimation != ANIM_WALK_LEFT)
-		//this.sprite.setAnimation(ANIM_WALK_LEFT);
+	if(this.sprite.currentAnimation != ANIM_WALK_LEFT)
+		this.sprite.setAnimation(ANIM_WALK_LEFT);
 
 	}
 	else if(keyboard.isKeyDown(keyboard.KEY_RIGHT) == true) {
 	right = true;
 	this.direction = RIGHT;
-	//if(this.sprite.currentAnimation != ANIM_WALK_RIGHT)
-		//this.sprite.setAnimation(ANIM_WALK_RIGHT);
+	if(this.sprite.currentAnimation != ANIM_WALK_RIGHT)
+		this.sprite.setAnimation(ANIM_WALK_RIGHT);
 	}
-	/*else
+	else
 	{
 		if(this.jumping == false && this.falling == false)
 		{
@@ -61,16 +61,16 @@ Player.prototype.update = function(deltaTime)
 				this.jumping == false)
 				this.sprite.setAnimation(ANIM_IDLE_RIGHT);
 			}
-		}*/
-	}
+		}
+	
 	if(keyboard.isKeyDown(keyboard.KEY_UP) == true && this.falling == false) {
 		jump = true;
-		/*if(left == true) {
+		if(left == true) {
 			this.sprite.setAnimation(ANIM_JUMP_LEFT);
 		}
 		if(right == true) {
 			this.sprite.setAnimation(ANIM_JUMP_RIGHT);
-		} */
+		}
 	}
 	var wasleft = this.velocity.x < 0;
 	var wasright = this.velocity.x > 0;
@@ -165,6 +165,8 @@ Player.prototype.update = function(deltaTime)
 			this.velocity.x = 0; // stop horizontal velocity
 		}
 	
+}
+}
 }
 Player.prototype.draw = function()
 {
