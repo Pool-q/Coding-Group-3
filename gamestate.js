@@ -20,7 +20,7 @@ GameState.prototype.update = function(dt)
 {
 	if( this.delay > 0 )
 		this.delay -= dt;
-
+player.update(dt);
 	//if( this.delay <= 0 && keyboard.isKeyDown( keyboard.KEY_SPACE ) == true )
 	//{
 	//	stateManager.switchState( new GameOverState() );
