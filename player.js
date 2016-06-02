@@ -16,7 +16,7 @@ var Player = function()
 	this.width = 120;
 	this.height = 170;
 	this.position = new Vector2();
-	this.position.set(512 - this.width/2,300 - this.height/2);
+	this.position.set(TILE, TILE);
 	this.velocity = new Vector2();
 	this.velocity.set(0,0);
 	this.falling = true;
