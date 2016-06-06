@@ -50,8 +50,9 @@ var LAYER_OBJECT_ENEMIES = 4;
 
 var MAP = {tw:600,th:50}
 
-var LAYER_COUNT = 1;
+var LAYER_COUNT = 2;
 var LAYER_PLATFORMS = 0;
+var LAYER_OBJECT_ENEMIES = 1;
 var MAP = {tw:600,th:12}
 var TILE = 35;
 var TILESET_TILE = TILE*2;
@@ -78,6 +79,7 @@ var JUMP = METER*1500;
 
 var player = new Player();
 var keyboard = new Keyboard();
+var enemies = [];
 
 var stateManager = new StateManager();
 
@@ -127,7 +129,7 @@ function initialise() //define the function
 		isSfxPlaying = false;
 	}
 
-	} );
+	} );*/
 	// add enemies
 	idx = 0;
 	for(var y = 0; y < level1.layers[LAYER_OBJECT_ENEMIES].height; y++) {
@@ -142,7 +144,7 @@ function initialise() //define the function
 		}
 	} 
 	// initialize trigger layer in collision map
-	cells[LAYER_OBJECT_TRIGGERS] = [];
+	/*cells[LAYER_OBJECT_TRIGGERS] = [];
 	idx = 0;
 	for(var y = 0; y < level1.layers[LAYER_OBJECT_TRIGGERS].height; y++) {
 		cells[LAYER_OBJECT_TRIGGERS][y] = [];
@@ -176,8 +178,6 @@ function cellAtTileCoord(layer, tx, ty)
 	return 0;
 	if(ty>=MAP.th)
 		return 1;
-	if(ty>=MAP.th-1)
-		loseHP();
 	return cells[layer][ty][tx];
 };
 
