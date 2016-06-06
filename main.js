@@ -40,20 +40,15 @@ var DEBUG = 1;		// set to 0 to turn off drawing debug information
 
 var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
-var LAYER_COUNT = 4;
-var LAYER_BACKGOUND = 0;
-var LAYER_PLATFORMS = 1;
-var LAYER_LADDERS = 2;
+var LAYER_COUNT = 2;
+//var LAYER_BACKGOUND = 0;
+var LAYER_PLATFORMS = 0;
+//var LAYER_LADDERS = 2;
 
-var LAYER_OBJECT_TRIGGERS = 3;
-var LAYER_OBJECT_ENEMIES = 4;
+//var LAYER_OBJECT_TRIGGERS = 3;
+var LAYER_OBJECT_ENEMIES = 1;
 
 var MAP = {tw:600,th:50}
-
-var LAYER_COUNT = 2;
-var LAYER_PLATFORMS = 0;
-var LAYER_OBJECT_ENEMIES = 1;
-var MAP = {tw:600,th:12}
 var TILE = 35;
 var TILESET_TILE = TILE*2;
 var TILESET_PADDING = 2;
@@ -74,6 +69,8 @@ var startTimer = 3;
 var MAXDX = METER*10;
 var MAXDY = METER*15;
 var ACCEL = MAXDX*2;
+var ENEMY_MAXDX = METER * 5;
+var ENEMY_ACCEL = ENEMY_MAXDX * 2;
 var FRICTION = MAXDX*6;
 var JUMP = METER*1500;
 
@@ -238,7 +235,7 @@ function drawMap()
 		startY = MAP.th - maxTilesUp + 1;
 		offsetY = TILE;
 	}
-	worldOffsetX = startX * TILE + offsetX;
+	worldOffsetY = startY * TILE + offsetY;
 
 	for( var layerIdx=0; layerIdx < LAYER_COUNT; layerIdx++ )
 	{
@@ -257,7 +254,7 @@ function drawMap()
 					var sy = TILESET_PADDING + (Math.floor(tileIndex / TILESET_COUNT_Y)) *
 					(TILESET_TILE + TILESET_SPACING);
 					context.drawImage(tileset, sx, sy, TILESET_TILE, TILESET_TILE,
-					(x-startX)*TILE - offsetX, (y-1)*TILE, TILESET_TILE, TILESET_TILE);
+					(x-startX)*TILE - offsetX, (y-startY)*TILE, TILESET_TILE, TILESET_TILE);
 				}
 			idx++;
 			}

@@ -1,12 +1,12 @@
 var LEFT = 0;
 var RIGHT = 1;
-var ANIM_IDLE_LEFT = 0;
+/*var ANIM_IDLE_LEFT = 0;
 var ANIM_JUMP_LEFT = 1;
 var ANIM_WALK_LEFT = 2;
 var ANIM_IDLE_RIGHT = 3;
 var ANIM_JUMP_RIGHT = 4;
 var ANIM_WALK_RIGHT = 5;
-var ANIM_MAX = 6;
+var ANIM_MAX = 6;*/
 var Player = function()
 {
 	this.sprite = new Sprite("PlayerMockup.png");
@@ -90,10 +90,10 @@ Player.prototype.update = function(deltaTime)
 		// apply an instantaneous (large) vertical impulse
 		ddy = ddy - JUMP;
 		this.jumping = true;
-		if(this.direction == LEFT)
+		/*if(this.direction == LEFT)
 			this.sprite.setAnimation(ANIM_JUMP_LEFT)
 		else
-			this.sprite.setAnimation(ANIM_JUMP_RIGHT)
+			this.sprite.setAnimation(ANIM_JUMP_RIGHT)*/
 	}
 	// calculate the new position and velocity:
 	this.position.y = Math.floor(this.position.y + (deltaTime * this.velocity.y));

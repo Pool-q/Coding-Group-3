@@ -33,6 +33,9 @@ GameState.prototype.update = function(dt)
 		context.font="24px Arial";
 		context.fillText("GO", (canvas.width/2), (canvas.height/2),100);
 		player.update(dt);
+		for(var i=0; i<enemies.length; i++){
+			enemies[i].update(dt);
+		}
 
 	}
 	else{
@@ -56,6 +59,9 @@ GameState.prototype.draw = function()
 	var deltaTime = getDeltaTime();
 	//drawMap();
 	player.draw();
+	for(var i=0; i<enemies.length; i++){
+		enemies[i].draw();
+	}
 
 	if(DEBUG == 1)
 	{	
