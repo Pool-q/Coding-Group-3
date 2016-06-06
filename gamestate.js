@@ -20,11 +20,35 @@ GameState.prototype.update = function(dt)
 {
 	if( this.delay > 0 )
 		this.delay -= dt;
-player.update(dt);
+
+
 	//if( this.delay <= 0 && keyboard.isKeyDown( keyboard.KEY_SPACE ) == true )
 	//{
 	//	stateManager.switchState( new GameOverState() );
 	//}
+	startTimer -= dt;
+	if(startTimer <=0){
+		startTimer = 0;
+				context.fillStyle = "#f00";
+		context.font="24px Arial";
+		context.fillText("GO", (canvas.width/2), (canvas.height/2),100);
+		player.update(dt);
+
+	}
+	else{
+								context.fillStyle = "#f00";
+				context.font="24px Arial";
+		context.fillText(startTimer, (canvas.width/2), (canvas.height/2),100);
+	}
+	if(startTimer ==0){
+gametimer -= dt;
+				context.font="24px Arial";
+		context.fillText(gametimer, (canvas.width/2),100);
+		if(gametimer <= 0){
+			gametimer = 0;
+		stateManager.switchState( new GameOverState() );
+	}
+}
 }
 
 GameState.prototype.draw = function() 

@@ -40,8 +40,14 @@ var DEBUG = 1;		// set to 0 to turn off drawing debug information
 
 var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
-var LAYER_COUNT = 1;
-var LAYER_PLATFORMS = 0;
+var LAYER_COUNT = 4;
+var LAYER_BACKGOUND = 0;
+var LAYER_PLATFORMS = 1;
+var LAYER_LADDERS = 2;
+
+var LAYER_OBJECT_TRIGGERS = 3;
+var LAYER_OBJECT_ENEMIES = 4;
+
 var MAP = {tw:600,th:50}
 var TILE = 35;
 var TILESET_TILE = TILE*2;
@@ -49,11 +55,16 @@ var TILESET_PADDING = 2;
 var TILESET_SPACING = 2;
 var TILESET_COUNT_X = 14;
 var TILESET_COUNT_Y = 14;
+
 var tileset = document.createElement("img");
 tileset.src = "tileset.png";
+
 var cells =[];
 var METER = TILE;
 var GRAVITY = METER*9.8*2;
+
+var startTimer = 3;
+		var gametimer = 60;
 //max speeds
 var MAXDX = METER*10;
 var MAXDY = METER*15;
@@ -64,9 +75,7 @@ var JUMP = METER*1500;
 var player = new Player();
 var keyboard = new Keyboard();
 
-
 var stateManager = new StateManager();
-
 
 function initialise() //define the function
 {
