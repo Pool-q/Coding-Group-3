@@ -40,6 +40,7 @@ var DEBUG = 1;		// set to 0 to turn off drawing debug information
 
 var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
+<<<<<<< HEAD
 var LAYER_COUNT = 4;
 var LAYER_BACKGOUND = 0;
 var LAYER_PLATFORMS = 1;
@@ -49,6 +50,11 @@ var LAYER_OBJECT_TRIGGERS = 3;
 var LAYER_OBJECT_ENEMIES = 4;
 
 var MAP = {tw:600,th:50}
+=======
+var LAYER_COUNT = 1;
+var LAYER_PLATFORMS = 0;
+var MAP = {tw:600,th:12}
+>>>>>>> origin/master
 var TILE = 35;
 var TILESET_TILE = TILE*2;
 var TILESET_PADDING = 2;
