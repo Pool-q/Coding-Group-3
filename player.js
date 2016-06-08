@@ -1,12 +1,9 @@
 var LEFT = 0;
 var RIGHT = 1;
-/*var ANIM_IDLE_LEFT = 0;
-var ANIM_JUMP_LEFT = 1;
-var ANIM_WALK_LEFT = 2;
-var ANIM_IDLE_RIGHT = 3;
-var ANIM_JUMP_RIGHT = 4;
-var ANIM_WALK_RIGHT = 5;
-var ANIM_MAX = 6;*/
+var ANIM_IDLE_RIGHT = 0;
+var ANIM_JUMP_RIGHT = 1;
+var ANIM_WALK_RIGHT = 2;
+var ANIM_MAX = 3;
 var Player = function()
 {
 	this.sprite = new Sprite("PlayerMockup.png");
@@ -32,18 +29,18 @@ Player.prototype.update = function(deltaTime)
 	var right = false;
 	var jump = false;
 	// check keypress events
-	if(keyboard.isKeyDown(keyboard.KEY_LEFT) == true) {
+	/*if(keyboard.isKeyDown(keyboard.KEY_LEFT) == true) {
 	left = true;
 	this.direction = LEFT;
-	/*if(this.sprite.currentAnimation != ANIM_WALK_LEFT)
-		this.sprite.setAnimation(ANIM_WALK_LEFT);*/
+	if(this.sprite.currentAnimation != ANIM_WALK_LEFT)
+		this.sprite.setAnimation(ANIM_WALK_LEFT);
 
-	}
-	else if(keyboard.isKeyDown(keyboard.KEY_RIGHT) == true) {
+	}*/
+	if(keyboard.isKeyDown(keyboard.KEY_RIGHT) == true) {
 	right = true;
 	this.direction = RIGHT;
-	//if(this.sprite.currentAnimation != ANIM_WALK_RIGHT)
-		//this.sprite.setAnimation(ANIM_WALK_RIGHT);
+	if(this.sprite.currentAnimation != ANIM_WALK_RIGHT)
+		this.sprite.setAnimation(ANIM_WALK_RIGHT);
 	}
 	/*else
 	{

@@ -39,7 +39,10 @@ GameState.prototype.update = function(dt)
 		startTimer = 0;
 				context.fillStyle = "#f00";
 		context.font="24px Arial";
-		context.fillText("GO", (canvas.width/2), (canvas.height/2),100);
+		if(goTimer >0){
+			context.fillText("GO", (canvas.width/2), (canvas.height/2),100);
+			goTimer -= dt;
+		}	
 		player.update(dt);
 		for(var i=0; i<enemies.length; i++){
 			enemies[i].update(dt);
@@ -55,18 +58,20 @@ GameState.prototype.update = function(dt)
 
 	}
 	else{
-								context.fillStyle = "#f00";
-				context.font="24px Arial";
-		context.fillText(startTimer, (canvas.width/2), (canvas.height/2),100);
+		context.fillStyle = "#f00";
+		context.font="24px Arial";
+		context.fillText(startTimer.toFixed(0), (canvas.width/2), (canvas.height/2),100);
 	}
 	if(startTimer ==0){
 gametimer -= dt;
 				context.font="24px Arial";
-		context.fillText(gametimer, (canvas.width/2),100);
+		context.fillText(gametimer.toFixed(0), (canvas.width/2),100);
 		if(gametimer <= 0){
 			gametimer = 0;
 		stateManager.switchState( new GameOverState() );
 	}
+	//if(player.position.x >= 20900)
+		//stateManager.switchState(new WinState());
 }
 }
 
