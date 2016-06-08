@@ -27,6 +27,14 @@ GameState.prototype.update = function(dt)
 	//	stateManager.switchState( new GameOverState() );
 	//}
 	startTimer -= dt;
+	speedTimer -= dt;
+	if(MAXDX<=0){
+		MAXDX = 0;
+		deathTimer -= dt;
+	}
+	if(deathTimer<=0){
+		stateManager.switchState(new GameOverState());
+	}
 	if(startTimer <=0){
 		startTimer = 0;
 				context.fillStyle = "#f00";

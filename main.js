@@ -78,6 +78,7 @@ var player = new Player();
 var keyboard = new Keyboard();
 var enemies = [];
 var speedTimer = 0;
+var deathTimer = 1;
 var stateManager = new StateManager();
 
 function initialise() //define the function
