@@ -35,6 +35,14 @@ GameState.prototype.update = function(dt)
 		player.update(dt);
 		for(var i=0; i<enemies.length; i++){
 			enemies[i].update(dt);
+					if(intersects(
+    		enemies[i].position.x - enemies[i].width/2, enemies[i].position.y - enemies[i].height/2,
+    		enemies[i].width, enemies[i].height,
+    		player.position.x - player.width/2, player.position.y - player.height/2,
+    		player.width, player.height) == true)
+    	{
+    		loseSpeed();
+    	}
 		}
 
 	}

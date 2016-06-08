@@ -11,12 +11,12 @@ var Player = function()
 {
 	this.sprite = new Sprite("PlayerMockup.png");
 	this.sprite.buildAnimation(1, 1, 120, 170, -1, [0]);
-	this.sprite.setAnimationOffset(0, 0, 0);
+	this.sprite.setAnimationOffset(0, -60, -64);
 	this.sprite.setLoop(0, false);
 	this.width = 120;
 	this.height = 170;
 	this.position = new Vector2();
-	this.position.set(TILE, TILE);
+	this.position.set(TILE,TILE);
 	this.velocity = new Vector2();
 	this.velocity.set(0,0);
 	this.falling = true;
@@ -95,11 +95,6 @@ Player.prototype.update = function(deltaTime)
 		else
 			this.sprite.setAnimation(ANIM_JUMP_RIGHT)*/
 	}
-	// calculate the new position and velocity:
-	this.position.y = Math.floor(this.position.y + (deltaTime * this.velocity.y));
-	this.position.x = Math.floor(this.position.x + (deltaTime * this.velocity.x));
-	this.velocity.x = bound(this.velocity.x + (deltaTime * ddx), -MAXDX, MAXDX);
-	this.velocity.y = bound(this.velocity.y + (deltaTime * ddy), -MAXDY, MAXDY);
 	// calculate the new position and velocity:
 	this.position.y = Math.floor(this.position.y + (deltaTime * this.velocity.y));
 	this.position.x = Math.floor(this.position.x + (deltaTime * this.velocity.x));

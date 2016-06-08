@@ -1,7 +1,7 @@
 var Enemy = function(x, y) {
 	this.sprite = new Sprite("enemymockup.png");
-	this.sprite.buildAnimation(2, 1, 88, 94, 0.3, [0, 1]);
-	this.sprite.setAnimationOffset(0, -55, -87);
+	this.sprite.buildAnimation(1, 1, 72, 36, -1, [0]);
+	this.sprite.setAnimationOffset(0, -36, -18);
 	this.position = new Vector2();
 	this.position.set(x, y);
 	this.width = 72;
@@ -61,7 +61,7 @@ Enemy.prototype.update = function(dt)
 
 Enemy.prototype.draw = function()
 {
-	this.sprite.draw(context, this.position.x - worldOffsetX, this.position.y);
+	this.sprite.draw(context, this.position.x - worldOffsetX, this.position.y -worldOffsetY);
 /*	context.save();
 		context.translate(this.position.x, this.position.y);
 		context.rotate(this.rotation);

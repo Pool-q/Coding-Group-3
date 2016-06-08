@@ -40,7 +40,7 @@ var DEBUG = 1;		// set to 0 to turn off drawing debug information
 
 var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
-var LAYER_COUNT = 2;
+var LAYER_COUNT = 1;
 //var LAYER_BACKGOUND = 0;
 var LAYER_PLATFORMS = 0;
 //var LAYER_LADDERS = 2;
@@ -66,7 +66,7 @@ var GRAVITY = METER*9.8*2;
 var startTimer = 3;
 		var gametimer = 60;
 //max speeds
-var MAXDX = METER*10;
+var MAXDX = METER*20;
 var MAXDY = METER*15;
 var ACCEL = MAXDX*2;
 var ENEMY_MAXDX = METER * 5;
@@ -77,7 +77,7 @@ var JUMP = METER*1500;
 var player = new Player();
 var keyboard = new Keyboard();
 var enemies = [];
-
+var speedTimer = 0;
 var stateManager = new StateManager();
 
 function initialise() //define the function
@@ -263,6 +263,27 @@ function drawMap()
 }
 
 stateManager.pushState( new SplashState() );
+
+function loseSpeed()
+{
+	if(speedTimer <= 0)
+	{
+		MAXDX -= 3*METER
+		speedTimer = 1
+	}
+}
+
+function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
+{
+	if(y2 + h2 < y1 ||
+		x2 + w2 < x1 ||
+		x2 > x1 +w1 ||
+		y2 > y1 + h1)
+	{
+		return false;
+	}
+	return true;
+}
 
 function run()
 {
