@@ -3,6 +3,7 @@
 var STATE_PREGAME = 0
 var STATE_GAME = 1
 var STATE_GAMEOVER = 2
+var STATE_WIN = 3
 
 var STATE_CURRENT = 1
 
@@ -19,5 +20,9 @@ function STATE_GAMEOVER()
 function STATE_CURRENT()
 {
 
+}
+function STATE_WIN()
+{
+	
 }
 

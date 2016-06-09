@@ -70,8 +70,12 @@ gametimer -= dt;
 			gametimer = 0;
 		stateManager.switchState( new GameOverState() );
 	}
+			CurrentTime = gametimer;
 	//if(player.position.x >= 20900)
 		//stateManager.switchState(new WinState());
+}
+if(keyboard.isKeyDown(keyboard.KEY_DOWN) == true){
+			stateManager.switchState( new WinState() );
 }
 }
 
