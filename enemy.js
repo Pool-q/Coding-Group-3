@@ -1,11 +1,12 @@
 var Enemy = function(x, y) {
-	this.sprite = new Sprite("enemymockup.png");
-	this.sprite.buildAnimation(1, 1, 72, 36, -1, [0]);
-	this.sprite.setAnimationOffset(0, -36, -18);
+	this.sprite = new Sprite("enemies_spritesheet.png");
+this.sprite.buildAnimation(1, 2, 72, 33, 0.3, [0,1]);
+this.sprite.setAnimationOffset(0, -35, -40);
+
 	this.position = new Vector2();
 	this.position.set(x, y);
 	this.width = 72;
-	this.height = 36;
+	this.height = 30;
 
 	this.velocity = new Vector2();
 	this.velocity.set(0, 0);
