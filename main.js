@@ -169,7 +169,7 @@ function cellAtPixelCoord(layer, x,y)
 	if(x<0 || x>SCREEN_WIDTH || y<0)
 	return 0;
 	if(y>SCREEN_HEIGHT)
-	return 1;
+		return 0;
 	return cellAtTileCoord(layer, p2t(x), p2t(y));
 };
 function cellAtTileCoord(layer, tx, ty)
@@ -177,7 +177,7 @@ function cellAtTileCoord(layer, tx, ty)
 	if(tx<0 || tx>=MAP.tw || ty<0)
 	return 0;
 	if(ty>=MAP.th)
-		return 1;
+		return 0;
 	return cells[layer][ty][tx];
 };
 
