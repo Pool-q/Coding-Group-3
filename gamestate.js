@@ -74,9 +74,6 @@ gametimer -= dt;
 	//if(player.position.x >= 20900)
 		//stateManager.switchState(new WinState());
 }
-if(keyboard.isKeyDown(keyboard.KEY_DOWN) == true){
-			stateManager.switchState( new WinState() );
-}
 }
 
 GameState.prototype.draw = function() 

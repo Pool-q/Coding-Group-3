@@ -172,6 +172,10 @@ if(keyboard.isKeyDown(keyboard.KEY_UP) == true && this.cooldownTimer <= 0){
 		}
 	
 	}
+
+  if (this.position.x > 21000) {stateManager.switchState(new WinState());}
+  
+
 }
 
 Player.prototype.draw = function()
