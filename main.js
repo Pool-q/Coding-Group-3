@@ -37,7 +37,7 @@ var fpsCount = 0;
 var fpsTime = 0;
 
 var DEBUG = 1;		// set to 0 to turn off drawing debug information
-
+var highscore = null;
 var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
 var LAYER_COUNT = 1;
