@@ -49,7 +49,7 @@ GameState.prototype.update = function(dt)
 					if(intersects(
     		enemies[i].position.x - enemies[i].width/2, enemies[i].position.y - enemies[i].height/2,
     		enemies[i].width, enemies[i].height,
-    		player.position.x - player.width/2, player.position.y - player.height/2,
+    		player.position.x, player.position.y,
     		player.width, player.height) == true)
     	{
     		loseSpeed();
@@ -84,8 +84,10 @@ GameState.prototype.draw = function()
 	var deltaTime = getDeltaTime();
 	//drawMap();
 	player.draw();
+
 	for(var i=0; i<enemies.length; i++){
 		enemies[i].draw();
+		
 	}
 
 	if(DEBUG == 1)
@@ -106,6 +108,9 @@ GameState.prototype.draw = function()
 		context.fillText("FPS: " + fps, 5, 20, 100);
 		context.fillText("X " + player.position.x, 5, 40, 100);
 		context.fillText("Y " + player.position.y, 5, 60, 100);
+		context.fillRect(player.position.x - worldOffsetX, player.position.y - worldOffsetY, player.width, player.height)
+		for(var i=0; i<enemies.length;i++)
+			context.fillRect(enemies[i].position.x - enemies[i].width/2 - worldOffsetX, enemies[i].position.y - enemies[i].height/2 - worldOffsetY, enemies[i].width, enemies[i].height);
 	}
 
 	//context.font="72px Verdana";	

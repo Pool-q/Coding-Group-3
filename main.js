@@ -64,7 +64,7 @@ var METER = TILE;
 var GRAVITY = METER*9.8*2;
 
 var startTimer = 3;
-		var gametimer = 60;
+var gametimer = 45;
 //max speeds
 var MAXDX = METER*20;
 var MAXDY = METER*15;

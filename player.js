@@ -9,7 +9,7 @@ var ANIM_MAX = 3;
 var Player = function()
 {
 
-		this.sprite = new Sprite("p1_spritesheet.png");
+	this.sprite = new Sprite("p1_spritesheet.png");
 	this.sprite.buildAnimation(7, 3, 73, 92, 0.05, [0]);
 	this.sprite.buildAnimation(7, 3, 73, 92, 0.05, [13]);
 	this.sprite.buildAnimation(7, 3, 73, 97, 0.05, [1,2,3,4,5,7,8,9,10]);
