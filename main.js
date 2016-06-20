@@ -81,6 +81,27 @@ var deathTimer = 1;
 var goTimer = 1.5;
 var CurrentTime = 0;
 var stateManager = new StateManager();
+var speedEmitters = [];
+jumpSound = new Howl(
+{
+	urls: ["jump_04.wav"],
+	buffer: true,
+	volume: 1,
+	onend: function() {
+		isSfxPlaying = false;
+	}
+
+});
+hitSound = new Howl(
+{
+	urls: ["speedDown.ogg"],
+	buffer: true,
+	volume: 1,
+	onend: function() {
+		isSfxPlaying = false;
+	}
+
+});
 
 function initialise() //define the function
 {
@@ -272,6 +293,7 @@ function loseSpeed()
 	{
 		MAXDX -= 3*METER
 		speedTimer = 1
+		hitSound.play();
 	}
 }
 

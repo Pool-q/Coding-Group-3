@@ -53,9 +53,15 @@ GameState.prototype.update = function(dt)
     		player.width, player.height) == true)
     	{
     		loseSpeed();
+    		if(speedTimer <= 0)
+    		{
+    			var o = new createFlyingStarsEmitter("spddwn.png", enemies[i].position.x - worldOffsetX, enemies[i].position.y - worldOffsetY);
+    			speedEmitters.push(o)
+    		}
     	}
 		}
-
+	for(var i=0;i<speedEmitters.length;i++)
+		speedEmmiters[i].update(dt);
 	}
 	else{
 		context.fillStyle = "#f00";
@@ -90,7 +96,8 @@ GameState.prototype.draw = function()
 		enemies[i].draw();
 		
 	}
-
+	for(var i=0;i<speedEmitters.length;i++)
+		speedEmitters[i].draw();
 	if(DEBUG == 1)
 	{	
 			// update the frame counter 

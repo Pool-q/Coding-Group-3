@@ -80,6 +80,7 @@ this.cooldownTimer -= deltaTime;
 if(keyboard.isKeyDown(keyboard.KEY_UP) == true && this.cooldownTimer <= 0){
 	this.cooldownTimer = 0.5;
 	jump = true;
+
 }
 	if(this.falling){
 
@@ -103,6 +104,7 @@ if(keyboard.isKeyDown(keyboard.KEY_UP) == true && this.cooldownTimer <= 0){
 		// apply an instantaneous (large) vertical impulse
 		ddy = ddy - JUMP;
 		this.jumping = true;
+		jumpSound.play();
 	if(this.direction == RIGHT)
 			this.sprite.setAnimation(ANIM_JUMP_RIGHT);
 	}
