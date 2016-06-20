@@ -41,6 +41,7 @@ WinState.prototype.update = function(dt)
     initialise();
 
    }
+   music.stop();
 }
 
 WinState.prototype.draw = function() 

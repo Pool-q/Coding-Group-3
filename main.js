@@ -82,6 +82,7 @@ var goTimer = 1.5;
 var CurrentTime = 0;
 var stateManager = new StateManager();
 var speedEmitters = [];
+var music;
 jumpSound = new Howl(
 {
 	urls: ["jump_04.wav"],
@@ -133,23 +134,14 @@ function initialise() //define the function
             }
         }
     }
-/*    music = new Howl(
+  music = new Howl(
 	{
-		urls: ["background.ogg"],
+		urls: ["02-warp-room.mp3"],
 		loop: true,
 		buffer: true,
 		volume: 0.5
 	} );
-	fireSFX = new Howl(
-	{
-		urls: ["fireEffect.ogg"],
-		buffer: true,
-		volume: 1,
-		onend: function() {
-		isSfxPlaying = false;
-	}
-
-	} );*/
+	music.play();
 	// add enemies
 	idx = 0;
 	for(var y = 0; y < level1.layers[LAYER_OBJECT_ENEMIES].height; y++) {
