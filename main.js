@@ -36,17 +36,16 @@ var fps = 0;
 var fpsCount = 0;
 var fpsTime = 0;
 
-var DEBUG = 1;		// set to 0 to turn off drawing debug information
+var DEBUG = 0;		// set to 0 to turn off drawing debug information
 var highscore = null;
 var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
-var LAYER_COUNT = 1;
+var LAYER_COUNT = 2;
 //var LAYER_BACKGOUND = 0;
 var LAYER_PLATFORMS = 0;
 //var LAYER_LADDERS = 2;
-
-//var LAYER_OBJECT_TRIGGERS = 3;
 var LAYER_OBJECT_ENEMIES = 1;
+var LAYER_OBJECT_TRIGGERS = 2;
 
 var MAP = {tw:600,th:50}
 var TILE = 35;
@@ -64,7 +63,7 @@ var METER = TILE;
 var GRAVITY = METER*9.8*2;
 
 var startTimer = 3;
-var gametimer = 45;
+var gametimer = 180;
 //max speeds
 var MAXDX = METER*20;
 var MAXDY = METER*15;
@@ -290,8 +289,9 @@ function intersects(x1, y1, w1, h1, x2, y2, w2, h2)
 
 function run()
 {
-	context.fillStyle = "#ccc";		
-	context.fillRect(0, 0, canvas.width, canvas.height);
+		var bgImage = document.createElement("img");
+		bgImage.src = "bg_shroom.png";
+		context.drawImage(bgImage,0,0,SCREEN_WIDTH,SCREEN_HEIGHT);
 	drawMap();
 	
 	var deltaTime = getDeltaTime();

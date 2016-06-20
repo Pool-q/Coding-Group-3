@@ -9,7 +9,7 @@ var GameState = function()
 
 GameState.prototype.load = function() 
 {
-	this.delay = 2;
+	this.delay = 1;
 }
 
 GameState.prototype.unload = function() 
@@ -71,13 +71,17 @@ gametimer -= dt;
 		stateManager.switchState( new GameOverState() );
 	}
 			CurrentTime = gametimer;
-	//if(player.position.x >= 20900)
-		//stateManager.switchState(new WinState());
+	if(player.position.x >= 20900)
+		stateManager.switchState(new WinState());
+}
+if(player.position.y >= 1750){
+	stateManager.switchState(new GameOverState());
 }
 }
 
 GameState.prototype.draw = function() 
 {
+
 	var deltaTime = getDeltaTime();
 	//drawMap();
 	player.draw();
@@ -109,6 +113,8 @@ GameState.prototype.draw = function()
 		for(var i=0; i<enemies.length;i++)
 			context.fillRect(enemies[i].position.x - enemies[i].width/2 - worldOffsetX, enemies[i].position.y - enemies[i].height/2 - worldOffsetY, enemies[i].width, enemies[i].height);
 	}
+
+
 
 	//context.font="72px Verdana";	
 	//context.fillStyle = "#FF0";	

@@ -1,7 +1,7 @@
 var Enemy = function(x, y) {
 	this.sprite = new Sprite("enemies_spritesheet.png");
 this.sprite.buildAnimation(1, 2, 72, 33, 0.3, [0,1]);
-this.sprite.setAnimationOffset(0, -35, -40);
+this.sprite.setAnimationOffset(0, 1, 12);
 
 	this.position = new Vector2();
 	this.position.set(x, y);

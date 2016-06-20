@@ -14,12 +14,12 @@ var Player = function()
 	this.sprite.buildAnimation(7, 3, 73, 92, 0.05, [13]);
 	this.sprite.buildAnimation(7, 3, 73, 97, 0.05, [1,2,3,4,5,7,8,9,10]);
 	this.offset = new Vector2();
-	this.offset.set(1, 12);
+	this.offset.set(-10, 12);
 	for(var i=0; i<ANIM_MAX; i++)
 	{
 		this.sprite.setAnimationOffset(i, this.offset.x, this.offset.y);
 	}
-	this.sprite.setAnimationOffset(0, 1, 12);
+	this.sprite.setAnimationOffset(0, 10, 12);
 	this.width = 73;
 	this.height = 92;
 	this.position = new Vector2();
