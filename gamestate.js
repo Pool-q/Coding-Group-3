@@ -71,8 +71,11 @@ gametimer -= dt;
 		stateManager.switchState( new GameOverState() );
 	}
 			CurrentTime = gametimer;
-	//if(player.position.x >= 20900)
-		//stateManager.switchState(new WinState());
+	if(player.position.x >= 20900)
+		stateManager.switchState(new WinState());
+}
+if(player.position.y >= 1750){
+	stateManager.switchState(new GameOverState());
 }
 }
 
