@@ -9,7 +9,7 @@ var GameState = function()
 
 GameState.prototype.load = function() 
 {
-	this.delay = 2;
+	this.delay = 1;
 }
 
 GameState.prototype.unload = function() 
@@ -78,6 +78,7 @@ gametimer -= dt;
 
 GameState.prototype.draw = function() 
 {
+
 	var deltaTime = getDeltaTime();
 	//drawMap();
 	player.draw();
@@ -109,6 +110,8 @@ GameState.prototype.draw = function()
 		for(var i=0; i<enemies.length;i++)
 			context.fillRect(enemies[i].position.x - enemies[i].width/2 - worldOffsetX, enemies[i].position.y - enemies[i].height/2 - worldOffsetY, enemies[i].width, enemies[i].height);
 	}
+
+
 
 	//context.font="72px Verdana";	
 	//context.fillStyle = "#FF0";	
