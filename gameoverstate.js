@@ -30,7 +30,7 @@ GameOverState.prototype.update = function(dt)
     goTimer = 1.5;
     CurrentTime = 0;
     stateManager.switchState(new GameState());
-    gametimer = 45;
+    gametimer = 175;
     startTimer = 3;
     enemies.splice(0,enemies.length);
     initialise();
